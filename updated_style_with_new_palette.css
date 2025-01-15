@@ -1,0 +1,473 @@
+/* Variables for Colors */
+:root {
+    --dark-blue-1: #212A31;
+    --dark-blue-2: #2E3944;
+    --teal: #124E66;
+    --grey-blue: #748D92;
+    --light-grey: #D3D9D4;
+}
+
+/* General Reset */
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif; line-height: 1.6; background-color: var(--dark-blue-1); /* Set the background of the whole page */
+    transition: opacity 1s ease;
+}
+
+/* Hero Section */
+.hero {
+    padding-top: 80px; /* Adjusted to provide space for the fixed navbar */
+}
+
+/* Navigation Bar */
+.nav {
+    position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: rgba(11, 12, 16, 0.8); backdrop-filter: blur(20px); padding: 10px 40px; border-radius: 30px; z-index: 1000; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Hide hamburger by default */
+.hamburger {
+    display: none;
+}
+
+/* Navigation Links */
+.nav .link ul {
+    display: flex; justify-content: center; align-items: center;
+}
+
+.nav .link ul li {
+    list-style: none; margin: 0 15px;
+}
+
+.nav .link ul li a {
+    color: var(--light-grey); font-size: 18px; text-decoration: none; padding: 10px 20px; border-radius: 20px; transition: background-color 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav .link ul {
+        display: none; /* Hide links by default */
+        flex-direction: column; /* Stack vertically */
+        position: absolute; top: 60px; left: 50%; transform: translateX(-50%); background: rgba(11, 12, 16, 0.8); border-radius: 10px; width: 80%;
+    }
+
+    .nav .link ul.active {
+        display: flex; /* Show links when active */
+    }
+
+    .hamburger {
+        display: block; /* Show hamburger icon on small screens */
+        cursor: pointer;
+    }
+}
+
+.main {
+    display: flex; justify-content: center; align-items: center; min-height: calc(100vh - 80px); /* Full height minus navbar */
+    background: var(--dark-blue-1); padding: 20px;
+}
+
+.men {
+    width: 400px; height: 400px; border-radius: 50%; margin-right: 40px; object-fit: cover;
+}
+
+.main-detail {
+    max-width: 600px; text-align: left;
+}
+
+.main-detail h1 {
+    font-size: 36px; margin: 10px 0; color: var(--light-grey);
+}
+
+.main-detail h4 {
+    font-size: 18px; color: var(--light-grey); margin: 5px 0;
+}
+
+.main-detail p1 {
+    font-size: 24px; display: block; color: var(--light-grey); margin-bottom: 5px;
+}
+
+.main-detail p {
+    font-size: 16px; line-height: 1.6; color: var(--light-grey); margin-bottom: 20px; text-align: left;
+}
+
+.btn {
+    margin-top: 20px;
+}
+
+.btn button {
+    background-color: var(--teal); color: var(--light-grey); padding: 10px 20px; border: none; border-radius: 20px; cursor: pointer; transition: background-color 0.3s ease;
+}
+
+.btn button:hover {
+    background-color: var(--dark-blue-2);
+}
+
+/* Social Media Icons */
+.social {
+    margin-top: 20px;
+}
+
+.social i {
+    font-size: 24px; color: var(--grey-blue); margin: 0 10px; cursor: pointer;
+}
+
+.social i:hover {
+    color: var(--light-grey);
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .nav .link ul li {
+        margin: 0 10px;
+    }
+
+    .main {
+        flex-direction: column; text-align: center;
+    }
+
+    .main-detail h1 {
+        font-size: 28px;
+    }
+
+    .main-detail p1 {
+        font-size: 20px;
+    }
+
+    .main-detail p, .main-detail p1, .main-detail h4 {
+        text-align: center;
+    }
+
+    .men {
+        margin-right: 0; margin-bottom: 20px;
+    }
+}
+
+/* Skills section */
+.skills-section {
+    background-color: var(--teal); width: 100vw; height: 100vh; box-sizing: border-box; padding: 20px; display: flex; flex-direction: column; position: relative;
+}
+
+h2 {
+    font-size: 2rem; margin-bottom: 20px; text-align: center; margin-top: 40px; color: var(--grey-blue);
+}
+
+p {
+    text-align: center; margin-bottom: 40px;
+}
+
+/* Center the skills container */
+.skills-container-wrapper {
+    flex-grow: 1; display: flex; justify-content: center; align-items: center;
+}
+
+.skills-container {
+    width: 100%; max-width: 1200px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px;
+}
+
+.skills-column {
+    width: 48%;
+}
+
+.skill-category {
+    background: var(--dark-blue-2); border: 1px solid var(--dark-blue-2); border-radius: 8px; padding: 15px; margin-bottom: 15px; transition: height 0.5s ease; overflow: hidden; cursor: pointer;
+}
+
+.category-header {
+    display: flex; justify-content: space-between; font-size: 1.5rem; font-weight: 600; color: var(--grey-blue);
+}
+
+.arrow {
+    transition: transform 0.3s ease;
+}
+
+.skills-details {
+    margin-top: 15px; display: none;
+}
+
+.skill {
+    display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; color: var(--light-grey);
+}
+
+.progress-bar {
+    flex-grow: 1; height: 6px; background-color: #ddd; border-radius: 10px; margin: 0 15px; overflow: hidden;
+}
+
+.progress {
+    height: 100%; background-color: var(--grey-blue); border-radius: 10px;
+}
+
+.percentage {
+    font-size: 0.9rem; color: var(--light-grey);
+}
+
+.skill:last-child {
+    margin-bottom: 0;
+}
+
+.skill-category.active .skills-details {
+    display: block;
+}
+
+.skill-category.active .arrow {
+    transform: rotate(180deg);
+}
+
+/* Projects Section */
+#projects {
+    background-color: var(--dark-blue-2); padding: 50px 20px; color: var(--light-grey); font-family: 'Arial', sans-serif; display: flex; flex-direction: column; align-items: center; width: 100%;
+}
+
+/* Projects Heading */
+.projects-heading {
+    font-size: 2.5rem; margin-bottom: 40px; color: var(--grey-blue); text-align: center;
+}
+
+/* Projects Container using CSS Grid */
+.projects-container {
+    display: grid; grid-template-columns: repeat(4, 1fr); grid-gap: 40px; width: 100%; max-width: 1200px; padding: 0 20px;
+}
+
+/* Individual Project Box */
+.project-cube {
+    background-color: var(--teal); border-radius: 10px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); overflow: hidden; text-align: center; padding: 20px; transition: transform 0.3s ease, box-shadow 0.3s ease; position: relative; height: 100%; display: flex; flex-direction: column; justify-content: space-between;
+}
+
+.project-cube:hover {
+    transform: translateY(-10px); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.project-image img {
+    max-width: 100%; border-radius: 5px; margin-bottom: 20px;
+}
+
+.project-title {
+    font-size: 1.75rem; margin-bottom: 10px; color: var(--light-grey);
+}
+
+.project-technologies {
+    font-size: 1rem; color: var(--light-grey); margin: 0; padding: 0;
+}
+
+.project-summary {
+    font-size: 1rem; color: var(--light-grey); margin: 0; padding: 0;
+}
+
+/* Link styling */
+.project-link {
+    text-decoration: none; color: var(--light-grey); display: block; height: 100%;
+}
+
+/* Responsive Styling for Projects Section */
+@media (max-width: 1024px) {
+    .projects-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .projects-container {
+        grid-template-columns: repeat(2, 1fr); grid-gap: 20px; padding: 0 10px;
+    }
+
+    .projects-heading {
+        font-size: 2rem;
+    }
+
+    .project-cube {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .projects-container {
+        grid-template-columns: 1fr; grid-gap: 20px; padding: 0 10px;
+    }
+}
+
+/* Professional Experience Section */
+#experience {
+    background-color: var(--dark-blue-2); padding: 50px 20px; color: var(--light-grey); font-family: 'Arial', sans-serif; display: flex; flex-direction: column; align-items: center;
+}
+
+/* Experience heading */
+.experience-heading {
+    font-size: 2.5rem; margin-bottom: 40px; color: var(--grey-blue); text-align: center;
+}
+
+/* Experience card */
+.experience {
+    background-color: var(--teal); border-radius: 10px; margin: 20px 0; padding: 20px; display: flex; flex-direction: row; align-items: flex-start; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease; width: 80%; max-width: 1000px; overflow: hidden;
+}
+
+.experience:hover {
+    transform: scale(1.05);
+}
+
+/* Experience details */
+.experience h2 {
+    font-size: 1.8rem; margin-bottom: 10px; color: var(--grey-blue);
+}
+
+.experience p {
+    font-size: 1rem; margin-bottom: 15px; color: var(--light-grey);
+}
+
+.experience ul {
+    list-style-type: square; margin-left: 20px; color: var(--light-grey);
+}
+
+.experience li {
+    margin-bottom: 10px; font-size: 1rem;
+}
+
+/* Certificate image */
+.certificate-image {
+    display: block; margin: 20px auto; width: 350px !important; height: auto; border-radius: 10px;
+}
+
+/* Responsive Design for Experience Section */
+@media (max-width: 768px) {
+    .experience {
+        flex-direction: column;
+    }
+
+    .certificate-image {
+        width: 100%; margin-top: 20px;
+    }
+
+    .experience h2 {
+        font-size: 1.6rem;
+    }
+
+    .experience p {
+        font-size: 0.95rem;
+    }
+
+    .experience ul {
+        margin-left: 15px;
+    }
+
+    .experience li {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #experience {
+        padding: 30px 10px;
+    }
+
+    .experience-heading {
+        font-size: 2rem;
+    }
+
+    .experience h2 {
+        font-size: 1.4rem;
+    }
+
+    .experience p {
+        font-size: 0.85rem;
+    }
+
+    .experience li {
+        font-size: 0.85rem;
+    }
+}
+
+/* Research Section */
+#research {
+    background-color: var(--teal); text-align: center; padding: 60px 20px; color: var(--dark-blue-2); display: flex; flex-direction: column; align-items: center; gap: 40px;
+}
+
+.research-heading {
+    font-size: 2.8rem; margin-bottom: 2px; color: var(--grey-blue); font-weight: 600;
+}
+
+/* Center align headings by default, but text within research details will be adjusted */
+.research-details h2 {
+    font-size: 2rem; color: var(--grey-blue); margin-bottom: 10px; font-weight: 500;
+}
+
+.research-details p {
+    font-size: 1.2rem; margin-bottom: 15px; color: var(--light-grey);
+}
+
+/* PDF Download Link */
+.research-pdf {
+    text-align: center; margin: 0 auto; padding: 20px 0; margin-top: 30px;
+}
+
+.pdf-link {
+    font-size: 1.5rem; color: var(--grey-blue); text-decoration: none; border: 2px solid var(--grey-blue); padding: 10px 20px; border-radius: 5px; transition: background-color 0.3s, color 0.3s;
+}
+
+.pdf-link:hover {
+    background-color: var(--grey-blue); color: #fff;
+}
+
+/* Contact Section */
+#contact {
+    padding: 80px 20px; background-color: var(--dark-blue-2); text-align: center;
+}
+
+#contact h2 {
+    font-size: 3rem; color: var(--grey-blue); margin-bottom: 20px; font-family: 'Montserrat', sans-serif;
+}
+
+#contact p {
+    font-size: 1.3rem; color: var(--dark-blue-2); margin-bottom: 40px; font-family: 'Open Sans', sans-serif;
+}
+
+/* Form Styling */
+form {
+    background-color: var(--teal); padding: 40px; border-radius: 12px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); max-width: 700px; margin: 0 auto;
+}
+
+#contactForm input[type="text"], #contactForm input[type="email"], #contactForm textarea {
+    width: 100%; padding: 12px; margin: 15px 0; border: 1px solid #000; border-radius: 8px; background-color: var(--dark-blue-2); font-size: 1.1rem; color: var(--grey-blue); font-family: 'Open Sans', sans-serif; transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#contactForm input[type="text"]:focus, #contactForm input[type="email"]:focus, #contactForm textarea:focus {
+    border-color: var(--grey-blue); box-shadow: 0 0 8px var(--grey-blue);
+}
+
+/* Buttons Styling */
+input[type="submit"], input[type="reset"] {
+    padding: 12px 30px; border: none; border-radius: 6px; background-color: var(--grey-blue); color: var(--dark-blue-1); font-size: 1.2rem; font-family: 'Montserrat', sans-serif; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s;
+}
+
+input[type="submit"]:hover, input[type="reset"]:hover {
+    background-color: var(--dark-blue-2); transform: scale(1.05);
+}
+
+/* Flexbox for Action Buttons */
+.actions {
+    display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+}
+
+.actions li {
+    list-style: none;
+}
+
+/* Responsive Design for Contact Form */
+@media (max-width: 768px) {
+    form {
+        padding: 30px;
+    }
+
+    input[type="submit"], input[type="reset"] {
+        width: 100%; margin-bottom: 10px;
+    }
+}
+
+/* Certificate Section */
+.research-certificate {
+    text-align: center; margin: 0 auto; padding: 20px 0;
+}
+
+/* Certificate Image Styling */
+.certificate-image {
+    display: inline-block; width: 50%; max-width: 50%; height: auto; margin-top: 20px; border-radius: 10px;
+}
